@@ -42,19 +42,45 @@ public class HospitalDataBase implements DataBase{
     }
 
     @Override
-    public void update(JSONObject jsonObject) throws JSONException, SQLException, ClassNotFoundException {
-
+    public void update(JSONObject hospital) throws JSONException, SQLException, ClassNotFoundException {
+        String query = "UPDATE hospitals SET username = ?, name = ?, address = ?, phone_number = ? WHERE username = ?";
+        PreparedStatement preparedStmt = establish_connection().prepareStatement(query);
+        preparedStmt.setString(1, hospital.getString("username"));
+        preparedStmt.setString(2, hospital.getString("name"));
+        preparedStmt.setString(3, hospital.getString("address"));
+        preparedStmt.setString(4, hospital.getString("phone_number"));
+        preparedStmt.setString(5, hospital.getString("username"));
+        preparedStmt.executeUpdate();
+        establish_connection().close();
+        System.out.println("The Hospital is updated successfully");
     }
 
     @Override
-    public void delete(int id) throws SQLException, ClassNotFoundException {
-
+    public void delete(JSONObject hospitalUsername) throws SQLException, ClassNotFoundException, JSONException {
+        String query = " DELETE from hospitals WHERE username = '" + hospitalUsername.getString("username") +"'";
+        PreparedStatement preparedStmt = establish_connection().prepareStatement(query);
+        preparedStmt.executeUpdate();
+        establish_connection().close();
+        System.out.println("The Hospital is Deleted successfully");
     }
 
     @Override
-    public JSONArray search(String string) throws SQLException, ClassNotFoundException, JSONException {
+    public JSONArray search(JSONObject string) throws SQLException, ClassNotFoundException, JSONException {
         return null;
     }
 
-
+    @Override
+    public JSONObject search(String username) throws SQLException, ClassNotFoundException, JSONException {
+        JSONObject hospital = new JSONObject();
+        Statement statement = establish_connection().createStatement();
+        ResultSet rs = statement.executeQuery("select * from hospitals where username ='"+username+"'");
+        if(rs.next())
+        {
+            hospital.put("username", rs.getString("username"));
+            hospital.put("name", rs.getString("name"));
+            hospital.put("address", rs.getString("address"));
+            hospital.put("phone_number", rs.getString("phone_number"));
+        }
+        return hospital;
+    }
 }

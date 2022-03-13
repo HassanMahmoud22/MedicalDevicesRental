@@ -46,9 +46,10 @@ public class AdminController implements IAdmin{
     @RequestMapping("removeDevice")
     @Override
     @PostMapping
-    public void removeDevice(@RequestParam int id) throws SQLException, ClassNotFoundException {
+    public void removeDevice(@RequestBody String id) throws SQLException, ClassNotFoundException, JSONException {
+        JSONObject idObject = new JSONObject(id);
         dataBase = new DevicesDataBase();
-        dataBase.delete(id);
+        dataBase.delete(idObject);
     }
 
     @RequestMapping("updateDevice")

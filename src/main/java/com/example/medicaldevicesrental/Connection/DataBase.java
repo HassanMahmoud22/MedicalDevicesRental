@@ -18,6 +18,8 @@ public interface DataBase {
     public void create(JSONObject jsonObject) throws JSONException, SQLException, ClassNotFoundException;
     public JSONArray read() throws SQLException, ClassNotFoundException, JSONException;
     public void update(JSONObject jsonObject) throws JSONException, SQLException, ClassNotFoundException;
-    public void delete(int id) throws SQLException, ClassNotFoundException;
-    public JSONArray search(String string) throws SQLException, ClassNotFoundException, JSONException;
+    public void delete(JSONObject id) throws SQLException, ClassNotFoundException, JSONException;
+    public JSONArray search(JSONObject string) throws SQLException, ClassNotFoundException, JSONException;
+    public JSONObject search(String uniqueValue) throws SQLException, ClassNotFoundException, JSONException;
+
 }
