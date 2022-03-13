@@ -73,63 +73,6 @@ export default {
   },
   methods:{
     search(){
-      /*
-      amount: 30
-      device_description: "measure pressure of blood"
-      device_name: "pressure Device"
-      id: 1
-      objective: "rent"
-      price: 15
-      state: "new"
-
-       */
-      // this.items = [
-      //   {
-      //     'id': 1523,
-      //     'name': 'blood pressure device',
-      //     'description': 'a digital device that measures blood pressure',
-      //     'rental_price': 10,
-      //     'new_price': 3000,
-      //     'used_price': 1500,
-      //     'amount': 10
-      //   },
-      //   {
-      //     'id': 2625,
-      //     'name': 'MRI',
-      //     'description': 'Magnetic rays device',
-      //     'rental_price': 100000,
-      //     'new_price': 700000,
-      //     'used_price': 500000,
-      //     'amount': 5
-      //   },
-      //   {
-      //     'id': 3251,
-      //     'name': 'blood pressure 2 device',
-      //     'description': 'a digital device that measures blood pressure',
-      //     'rental_price': 10,
-      //     'new_price': 3000,
-      //     'used_price': 1500,
-      //     'amount': 10
-      //   },
-      //   {
-      //     'id': 5262,
-      //     'name': 'MRI',
-      //     'description': 'Magnetic rays 2 device',
-      //     'rental_price': 100000,
-      //     'new_price': 700000,
-      //     'used_price': 500000,
-      //     'amount': 5
-      //   }]
-      // axios.get('https://medicaldevicesrental.herokuapp.com/api/admin/viewDevices')
-      //     .then(response => {
-      //       console.log(response.data)
-      //       console.log(typeof response.data)
-      //       this.items = response.data
-      //     })
-      // const str = this.searchInput
-      // console.log(str)
-      // console.log(typeof str)
-
       this.msg = ''
       const searchJson = {
         "search": this.searchInput
