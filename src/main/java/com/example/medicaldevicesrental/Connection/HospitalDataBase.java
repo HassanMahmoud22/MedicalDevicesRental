@@ -15,13 +15,13 @@ public class HospitalDataBase implements DataBase{
     public void create(JSONObject hospital) throws JSONException, SQLException, ClassNotFoundException {
         String query = "INSERT INTO Hospitals(username, name, address, phone_number) VALUES(?,?,?,?) ";
         PreparedStatement preparedStmt = establish_connection().prepareStatement(query);
-        preparedStmt.setString (1, (String) hospital.get("username"));
-        preparedStmt.setString (2, (String) hospital.get("name"));
-        preparedStmt.setDouble (3, (Double) hospital.get("address"));
-        preparedStmt.setDouble (4, (Double) hospital.get("phone_number"));
+        preparedStmt.setString (1, hospital.getString("username"));
+        preparedStmt.setString (2, hospital.getString("name"));
+        preparedStmt.setString (3, hospital.getString("address"));
+        preparedStmt.setString (4, hospital.getString("phone_number"));
         preparedStmt.executeUpdate();
         establish_connection().close();
-        System.out.println("Device added successfully");
+        System.out.println("Hospital added successfully");
     }
 
     @Override

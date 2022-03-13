@@ -1,5 +1,10 @@
 package com.example.medicaldevicesrental.Login;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.sql.SQLException;
+
 public interface ILogin {
-    public void login();
+    public boolean login(String user) throws JSONException, SQLException, ClassNotFoundException;
 }

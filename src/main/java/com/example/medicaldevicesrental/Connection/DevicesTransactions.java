@@ -57,7 +57,7 @@ public class DevicesTransactions implements DataBase{
         preparedStmt.setInt   (4, transaction.getInt("id"));
         preparedStmt.executeUpdate();
         establish_connection().close();
-        System.out.println("The transaction is updated successfully");
+        System.out.println("The Transaction is updated successfully");
     }
 
     @Override

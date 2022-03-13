@@ -1,9 +1,10 @@
 package com.example.medicaldevicesrental.Hospitals;
 
-import com.example.medicaldevicesrental.Connection.DataBase;
-import com.example.medicaldevicesrental.Connection.DevicesDataBase;
-import com.example.medicaldevicesrental.Connection.DevicesTransactions;
-import org.json.JSONArray;
+import com.example.medicaldevicesrental.Connection.*;
+import com.example.medicaldevicesrental.Login.ILogin;
+import com.example.medicaldevicesrental.Login.LoginController;
+import com.example.medicaldevicesrental.Register.IRegister;
+import com.example.medicaldevicesrental.Register.RegisterController;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.sql.SQLException;
 @RequestMapping("/api/hospital")
 @RestController
 public class HospitalController implements IHospital{
-    DataBase database;
+    private DataBase database;
 
     @Autowired
     public HospitalController(){}
@@ -39,5 +40,30 @@ public class HospitalController implements IHospital{
         device.put("amount", device.getInt("amount") - transactionObject.getInt("amount"));
         deviceDatabase.update(device);
         database.create(transactionObject);
+    }
+
+    @RequestMapping("register")
+    @PostMapping
+    @Override
+    public void register(@RequestBody String user) throws JSONException, SQLException, ClassNotFoundException {
+        IRegister registerObject = new RegisterController();
+        registerObject.register(user);
+        JSONObject hospitalObject = new JSONObject(user);
+        database = new HospitalDataBase();
+        database.create(hospitalObject);
+    }
+
+    @RequestMapping("login")
+    @GetMapping
+    @Override
+    public JSONObject login(@RequestBody String user) throws JSONException, SQLException, ClassNotFoundException {
+        ILogin loginObject = new LoginController();
+        database = new HospitalDataBase();
+        if(loginObject.login(user) == true)
+        {
+            JSONObject userObject = new JSONObject(user);
+            return database.search(userObject.getString("username"));
+        }
+        return null;
     }
 }
