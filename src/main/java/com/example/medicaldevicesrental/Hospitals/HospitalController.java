@@ -22,7 +22,7 @@ public class HospitalController implements IHospital{
     @RequestMapping("searchDevice")
     @GetMapping
     @Override
-    public String searchDevice(@RequestBody String string) throws SQLException, JSONException, ClassNotFoundException {
+    public String searchDevice(@RequestParam String string) throws SQLException, JSONException, ClassNotFoundException {
         JSONObject searchObject = new JSONObject(string);
         database = new DevicesDataBase();
         return database.search(searchObject).toString();
