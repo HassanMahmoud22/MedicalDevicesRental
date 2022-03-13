@@ -23,7 +23,6 @@ public class HospitalController implements IHospital{
     @GetMapping
     @Override
     public String searchDevice(@RequestBody String string) throws SQLException, JSONException, ClassNotFoundException {
-        System.out.println("ana elstring "+string);
         JSONObject searchObject = new JSONObject(string);
         database = new DevicesDataBase();
         return database.search(searchObject).toString();
