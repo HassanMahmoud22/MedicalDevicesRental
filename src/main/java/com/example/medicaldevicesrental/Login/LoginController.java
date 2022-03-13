@@ -35,6 +35,7 @@ public class LoginController implements ILogin {
             {
                dataBase = new HospitalDataBase();
                JSONObject hospital = dataBase.search(userObject.getString("username"));
+               hospital.put("role", "hospital");
                return hospital.toString();
             }
         }
