@@ -1,4 +1,4 @@
-# front
+# MedicalDevicesRental-client
 
 ## Project setup
 ```
