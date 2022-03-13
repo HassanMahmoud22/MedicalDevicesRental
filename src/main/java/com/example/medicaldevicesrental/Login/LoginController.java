@@ -20,7 +20,7 @@ public class LoginController implements ILogin {
     public LoginController(){}
 
     @RequestMapping("login")
-    @GetMapping
+    @PostMapping
     @Override
     public String login(@RequestBody String user) throws JSONException, SQLException, ClassNotFoundException {
         JSONObject temp = new JSONObject(user);

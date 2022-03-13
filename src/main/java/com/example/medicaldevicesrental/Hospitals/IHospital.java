@@ -3,7 +3,6 @@ package com.example.medicaldevicesrental.Hospitals;
 import org.json.JSONException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.SQLException;
 

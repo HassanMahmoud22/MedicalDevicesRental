@@ -29,7 +29,7 @@ public class HospitalController implements IHospital{
     }
 
     @RequestMapping("requestDevice")
-    @GetMapping
+    @PostMapping
     @Override
     public void requestDevice(@RequestBody String transaction) throws JSONException, SQLException, ClassNotFoundException {
         database = new DevicesTransactions();
