@@ -10,9 +10,9 @@ import java.sql.SQLException;
 public interface DataBase {
     default Connection establish_connection() throws SQLException, ClassNotFoundException {
         //String url="jdbc:mysql://b15ac2a343b8b9:35b36f26@eu-cdbr-west-02.cleardb.net/heroku_9bd1e1239aac862?reconnect=true";
-        String url = "jdbc:mysql://localhost:3306/MedicalDevicesRental";
+        String url = "mysql://b2d49ae5270dbf:414e55c9@us-cdbr-east-05.cleardb.net/heroku_9a58b6e4b09aa09?reconnect=true";
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection= DriverManager.getConnection(url,"root","root");
+        Connection connection= DriverManager.getConnection(url,"b2d49ae5270dbf","414e55c9");
         return connection;
     }
     public void create(JSONObject jsonObject) throws JSONException, SQLException, ClassNotFoundException;
