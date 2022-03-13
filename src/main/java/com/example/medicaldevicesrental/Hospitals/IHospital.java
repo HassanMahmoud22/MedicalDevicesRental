@@ -10,5 +10,4 @@ public interface IHospital {
     public String searchDevice(String string) throws SQLException, JSONException, ClassNotFoundException;
     public void requestDevice(@RequestBody String rentTransaction) throws JSONException, SQLException, ClassNotFoundException;
     public void register(@RequestBody String user) throws JSONException, SQLException, ClassNotFoundException;
-    public JSONObject login(@RequestBody String user) throws JSONException, SQLException, ClassNotFoundException;
 }

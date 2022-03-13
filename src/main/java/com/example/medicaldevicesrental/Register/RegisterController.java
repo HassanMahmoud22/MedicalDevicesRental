@@ -12,7 +12,6 @@ import java.sql.SQLException;
 public class RegisterController implements IRegister{
     private DataBase database;
 
-    @Autowired
     public RegisterController(){}
 
     public void register(String user) throws SQLException, JSONException, ClassNotFoundException {

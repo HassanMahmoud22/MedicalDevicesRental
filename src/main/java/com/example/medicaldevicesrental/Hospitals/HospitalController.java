@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 
+@CrossOrigin
 @RequestMapping("/api/hospital")
 @RestController
 public class HospitalController implements IHospital{
@@ -51,19 +52,5 @@ public class HospitalController implements IHospital{
         JSONObject hospitalObject = new JSONObject(user);
         database = new HospitalDataBase();
         database.create(hospitalObject);
-    }
-
-    @RequestMapping("login")
-    @GetMapping
-    @Override
-    public JSONObject login(@RequestBody String user) throws JSONException, SQLException, ClassNotFoundException {
-        ILogin loginObject = new LoginController();
-        database = new HospitalDataBase();
-        if(loginObject.login(user) == true)
-        {
-            JSONObject userObject = new JSONObject(user);
-            return database.search(userObject.getString("username"));
-        }
-        return null;
     }
 }
