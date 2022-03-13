@@ -45,6 +45,7 @@ public class HospitalController implements IHospital{
     @PostMapping
     @Override
     public void register(@RequestBody String user) throws JSONException, SQLException, ClassNotFoundException {
+        System.out.println(user);
         IRegister registerObject = new RegisterController();
         registerObject.register(user);
         JSONObject hospitalObject = new JSONObject(user);
