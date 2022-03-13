@@ -1,8 +1,6 @@
 package com.example.medicaldevicesrental.Hospitals;
 
 import com.example.medicaldevicesrental.Connection.*;
-import com.example.medicaldevicesrental.Login.ILogin;
-import com.example.medicaldevicesrental.Login.LoginController;
 import com.example.medicaldevicesrental.Register.IRegister;
 import com.example.medicaldevicesrental.Register.RegisterController;
 import org.json.JSONException;

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 
+@CrossOrigin
 @RequestMapping("/api/admin")
 @RestController
 public class AdminController implements IAdmin{

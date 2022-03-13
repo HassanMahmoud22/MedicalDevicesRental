@@ -1,7 +1,7 @@
 package com.example.medicaldevicesrental.Register;
 
 import org.json.JSONException;
-import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 

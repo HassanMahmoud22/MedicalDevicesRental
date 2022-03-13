@@ -3,11 +3,13 @@ package com.example.medicaldevicesrental.Admin;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.sql.SQLException;
 
+@Service
 public interface IAdmin {
     public String viewDevices() throws SQLException, JSONException, ClassNotFoundException;
 

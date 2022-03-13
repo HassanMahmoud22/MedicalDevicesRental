@@ -5,13 +5,14 @@ import com.example.medicaldevicesrental.Connection.HospitalDataBase;
 import com.example.medicaldevicesrental.Connection.UserDataBase;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
 
+@CrossOrigin
 @RequestMapping("/api/loginPage")
 @RestController
 public class LoginController implements ILogin {
