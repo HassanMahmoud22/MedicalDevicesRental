@@ -20,9 +20,9 @@ public class HospitalController implements IHospital{
     public HospitalController(){}
 
     @RequestMapping("searchDevice")
-    @GetMapping
+    @PostMapping
     @Override
-    public String searchDevice(@RequestParam String string) throws SQLException, JSONException, ClassNotFoundException {
+    public String searchDevice(@RequestBody String string) throws SQLException, JSONException, ClassNotFoundException {
         JSONObject searchObject = new JSONObject(string);
         database = new DevicesDataBase();
         return database.search(searchObject).toString();
